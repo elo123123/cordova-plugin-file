@@ -392,13 +392,14 @@ public class LocalFilesystem extends Filesystem {
         	byte buff[] = new byte[rawData.length];
             String absolutePath = filesystemPathForURL(inputURL);
             FileOutputStream out = new FileOutputStream(absolutePath, append);
+            Writer out2 = new OutputStreamWriter(out, "euc-kr");
             try {
             	in.read(buff, 0, buff.length);
-            	out.write(buff, 0, rawData.length);
-            	out.flush();
+            	out2.write(buff, 0, rawData.length);
+            	out2.flush();
             } finally {
             	// Always close the output
-            	out.close();
+            	out2.close();
             }
             if (isPublicDirectory(absolutePath)) {
                 broadcastNewFile(Uri.fromFile(new File(absolutePath)));
