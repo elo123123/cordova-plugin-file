@@ -398,7 +398,7 @@ public class LocalFilesystem extends Filesystem {
             Writer out2 = new OutputStreamWriter(out, "euc-kr");
             try {
             	in.read(buff, 0, buff.length);
-            	out2.write(buff, 0, rawData.length);
+            	out2.write(data);
             	out2.flush();
             } finally {
             	// Always close the output
