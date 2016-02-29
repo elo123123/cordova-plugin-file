@@ -1011,7 +1011,6 @@ NSString* const kCDVFilesystemURLPrefix = @"cdvfile";
         CDVPluginResult *result;
         if ([argData isKindOfClass:[NSString class]]) {
             NSUInteger encoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingEUC_KR);
-            [16:20]
             NSData *encData = [sourceString dataUsingEncoding:encoding allowLossyConversion:YES];
             result = [fs writeToFileAtURL:localURI withData:encData append:YES];
         } else if ([argData isKindOfClass:[NSData class]]) {
